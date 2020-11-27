@@ -10910,3 +10910,64 @@ a.text-dark:focus {
 .nav-link i{
     font-size: 1.3em;
 }
+
+.banner img{
+    width: 100%;
+}
+
+.recent-products .card-body.main{
+    padding: 0;
+    display: flex;
+}
+
+.recent-product{
+    width: 15rem;
+}
+
+.recent-product .outer-div{
+    margin: auto;
+}
+
+.recent-product .inner-div{
+    height: 200px;
+    width: 200px;
+    text-align: center;
+}
+
+.recent-product img{
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+}
+
+.recent-product p{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.single-product{
+    width: 23rem;
+}
+
+.single-product .outer-div{
+    margin: auto;
+}
+
+.single-product .inner-div{
+    height: 270px;
+    width: 270px;
+    text-align: center;
+}
+
+.single-product img{
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+}
+
+.single-product p{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}

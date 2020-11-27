@@ -18,6 +18,18 @@ class CreateDiscountRulesTable extends Migration
             $table->integer('percentage');
             $table->timestamps();
         });
+
+        DB::table('discount_rules')->insert([
+            'percentage' => 5,
+        ]);
+
+        DB::table('discount_rules')->insert([
+            'percentage' => 10,
+        ]);
+
+        DB::table('discount_rules')->insert([
+            'percentage' => 12,
+        ]);
     }
 
     /**
