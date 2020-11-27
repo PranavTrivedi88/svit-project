@@ -34,7 +34,7 @@
                     <ul class="navbar-nav mr-auto">
                         @auth
                             <li class="nav-item">
-                                <a href="{{ url('/products') }}" class="nav-link"><i class="fa fa-list" aria-hidden="true"></i></a>
+                                <a href="{{ url('/products') }}" class="nav-link"><i class="fa fa-bars" style="display: flex" aria-hidden="true"></i></a>
                             </li>
                         @endauth
                     </ul>
@@ -53,7 +53,11 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a href="{{ url('/cart') }}" class="nav-link"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                                <a href="{{ url('/cart') }}" class="nav-link">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                    <span class='badge badge-warning'> 5 </span>
+                                </a>
+
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('logout') }}"

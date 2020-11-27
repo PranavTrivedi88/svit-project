@@ -29,21 +29,31 @@
                     @endif
 
                     @forelse ($recent_products as $product)
-                        <div class="card recent-product ml-3 mb-3">
-                            <div class="mt-4 outer-div">
-                                <div class="inner-div">
-                                    <img src="{{ url('/images/' . $product->image) }}" class="card-img-top" alt="Mobile">
+                        <a class="recent-product ml-3 mb-3" href="{{ url('/products/' . $product->id) }}">
+                            <div class="card">
+                                <div class="card-body" style="padding: 5px">
+                                    <p class="card-text m-0">
+                                        <span>{{ $product->name }}</span>
+                                    </p>
+                                    <hr style="margin: 5px 0">
                                 </div>
+                                <div class="outer-div">
+                                    <div class="inner-div">
+                                        <img src="{{ url('/images/' . $product->image) }}" class="card-img-top" alt="Mobile">
+                                    </div>
+                                </div>
+                                <div class="m-3">
+                                    <button class="buy-now mb-2 w-100">Buy Now</button>
+                                    <br>
+                                    <button class="add-to-cart w-100">Add to Cart</button>
+                                </div>
+
                             </div>
-                            <div class="card-body" style="padding: 5px">
-                            <hr style="margin-bottom: 5px">
-                            <p class="card-text">
-                                <span>{{ $product->name }}</span>
-                            </p>
-                            </div>
-                        </div>
+                        </a>
                     @empty
-                        No products added recently
+                        <div class="text-center w-100 mb-3">
+                            <span>No products added recently</span>
+                        </div>
                     @endforelse
                 </div>
             </div>

@@ -2,21 +2,32 @@
 
 @section('content')
 <div class="container">
-    <div class="card">
+    <div class="card product-detail">
         <div class="card-body">
             <div class="row">
-                <div class="col-md-4">
-                    <img src="{{ url('/images/mobile.jpeg') }}" alt="">
+                <div class="col-md-4" style="margin: auto">
+                    <div class="product-detail-image">
+                        <img class="pr-3" src="{{ url('/images/' . $product->image) }}" alt="">
+                        <div class="mt-3" style="display: flex; justify-content: space-evenly">
+                            <button class="buy-now">Buy Now</button>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-8">
-                    <h4>Mobile</h4>
+                @php
+                    $discount_amount = ($product->price_per_unit * $product->discount_rule->percentage)/100;
+                @endphp
+                <div class="col-md-8 mt-3">
+                    <h5 style="color: #2196F3">{{ $product->name }}</h5>
                     <div>
-                        <span class="price-text" style="font-size: 20px; font-weight: bold;">₹20,000</span>
+                        <span class="price-text" style="font-size: 25px; font-weight: 500;">₹{{ $product->price_per_unit - $discount_amount }}</span>
                         &nbsp;&nbsp;&nbsp;
-                        <span class="text-muted" style="font-size: 14px; font-weight: bold;"> <strike>₹25,000</strike></span>
+                        <span class="text-muted" style="font-size: 14px;"> <strike>₹{{ $product->price_per_unit }}</strike></span>
+                        &nbsp;
+                        <span class="text-small discount">{{ $product->discount_rule->percentage }}% off</span>
                     </div>
                     <p style="margin-top: 2rem">
-                        Take advantage of this realme smartphone’s 64 MP quad camera and click stunning photos. This phone also comes with a bunch of cool filters that’ll make night photography all the more amazing. In addition, this smartphone’s Helio G95 Gaming Processor makes it one powerful performer.
+                        {{ $product->description }}
                     </p>
                 </div>
             </div>
