@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Order;
+use App\Cart;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class OrderController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-
+        return view('cart');
     }
 
     /**
@@ -43,10 +43,10 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show(Cart $cart)
     {
         //
     }
@@ -54,10 +54,10 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Order  $order
+     * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit(Cart $cart)
     {
         //
     }
@@ -66,10 +66,10 @@ class OrderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Order  $order
+     * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, Cart $cart)
     {
         //
     }
@@ -77,11 +77,18 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Order  $order
+     * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy(Cart $cart)
     {
         //
+    }
+
+    public function add_to_cart(Request $request){
+        Cart::created([
+            'user_id' => Auth::user()->id,
+            'product_id' => $request->get('product_id')
+        ]);
     }
 }

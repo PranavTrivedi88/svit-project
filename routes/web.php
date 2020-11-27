@@ -19,3 +19,6 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('/products', 'ProductController')->middleware('auth');
+Route::resource('/orders', 'OrderController')->middleware('auth');
+Route::resource('/cart', 'CartController')->middleware('auth');
+Route::post('/cart/add-to-cart', 'CartController@add_to_cart')->middleware('auth');

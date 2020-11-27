@@ -4979,7 +4979,9 @@ input[type=button].btn-block {
 }
 
 .card-title {
-  margin-bottom: 0.75rem;
+    margin: 5px;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
 }
 
 .card-subtitle {
@@ -10991,7 +10993,7 @@ a.text-dark:focus {
     max-height: 300px;
 }
 
-.product-detail-image button, .recent-product button, .single-product button{
+.product-detail-image .button, .recent-product button, .single-product button{
     padding: 7px 8px;
     border-radius: 2px;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
@@ -10999,6 +11001,8 @@ a.text-dark:focus {
     float: left;
     color: #fff;
     width: 40%;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .product-detail-image .buy-now, .recent-product .buy-now, .single-product .buy-now{
@@ -11013,9 +11017,6 @@ a.text-dark:focus {
     color: #388e3c;
 }
 
-#lblCartCount {
-
-}
 .badge {
   padding-left: 9px;
   padding-right: 9px;
@@ -11033,4 +11034,57 @@ a.text-dark:focus {
 .label-warning[href],
 .badge-warning[href] {
   background-color: #c67605;
+}
+
+
+.cart-products .outer-div{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    /* border-right: 1px solid #ddd; */
+}
+
+.cart-products .inner-div{
+    height: 100px;
+    width: 100px;
+    text-align: center;
+}
+
+.cart-products img{
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+}
+
+.cart-product:not(:last-child){
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.product-quantity{
+    width: 45px;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid #bbb;
+}
+
+.price-detail th{
+    padding: 10px;
+}
+
+.price-detail td{
+    text-align: right;
+    padding-right: 10px;
+}
+
+.price-detail hr{
+    width: 100%;
+    margin: 5px 0;
+    border-style: dashed;
+}
+
+.price-detail .total{
+    font-size: 18px;
+    font-weight: bold;
 }

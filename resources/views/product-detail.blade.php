@@ -9,8 +9,8 @@
                     <div class="product-detail-image">
                         <img class="pr-3" src="{{ url('/images/' . $product->image) }}" alt="">
                         <div class="mt-3" style="display: flex; justify-content: space-evenly">
-                            <button class="buy-now">Buy Now</button>
-                            <button class="add-to-cart">Add to Cart</button>
+                            <a class="buy-now button">Buy Now</a>
+                        <a class="add-to-cart button" data-product-id="{{ $product->id }}">Add to Cart</a>
                         </div>
                     </div>
                 </div>
