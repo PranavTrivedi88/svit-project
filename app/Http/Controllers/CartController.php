@@ -16,7 +16,10 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('cart');
+        $user = Auth::user();
+        $cart_products = Cart::where('user_id', $user->id)->with('product')->get();
+
+        return view('cart', compact('cart_products', 'user'));
     }
 
     /**
@@ -82,13 +85,42 @@ class CartController extends Controller
      */
     public function destroy(Cart $cart)
     {
-        //
+        $cart->delete();
+
+        return back();
     }
 
-    public function add_to_cart(Request $request){
-        Cart::created([
-            'user_id' => Auth::user()->id,
-            'product_id' => $request->get('product_id')
-        ]);
+    public function add_to_cart(Request $request)
+    {
+        $cart_product = Cart::where('user_id', Auth::user()->id)
+                    ->where('product_id', $request->get('product_id'))->first();
+
+        if($cart_product){
+            $cart_product->update([
+                'quantity' => $cart_product->quantity + 1
+            ]);
+        } else {
+            Cart::create([
+                'user_id' => Auth::user()->id,
+                'product_id' => $request->get('product_id')
+            ]);
+        }
+        return response(["message" => "success"], 200);
+    }
+
+    public function change_quantity(Request $request){
+
+        Cart::find($request->cart_id)
+              ->update([
+                  "quantity" => $request->quantity
+              ]);
+
+        return response(['message' => 'success'], 200);
+
+    }
+
+    public function cart_count(){
+        $count = Cart::where('user_id', Auth::user()->id)->count();
+        return response(['count' => $count], 200);
     }
 }

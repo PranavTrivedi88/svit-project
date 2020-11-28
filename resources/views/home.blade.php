@@ -29,27 +29,30 @@
                     @endif
 
                     @forelse ($recent_products as $product)
-                        <a class="recent-product ml-3 mb-3" href="{{ url('/products/' . $product->id) }}">
-                            <div class="card">
-                                <div class="card-body" style="padding: 5px">
-                                    <p class="card-text m-0">
-                                        <span>{{ $product->name }}</span>
-                                    </p>
-                                    <hr style="margin: 5px 0">
-                                </div>
-                                <div class="outer-div">
-                                    <div class="inner-div">
-                                        <img src="{{ url('/images/' . $product->image) }}" class="card-img-top" alt="Mobile">
+                        <div class="recent-product">
+                            <a class=" ml-3 mb-3" href="{{ url('/products/' . $product->id) }}">
+                                <div class="card">
+                                    <div class="card-body" style="padding: 5px">
+                                        <p class="card-text m-0">
+                                            <span>{{ $product->name }}</span>
+                                        </p>
+                                        <hr style="margin: 5px 0">
                                     </div>
-                                </div>
-                                <div class="m-3">
-                                    <button class="buy-now mb-2 w-100">Buy Now</button>
-                                    <br>
-                                    <button class="add-to-cart w-100">Add to Cart</button>
-                                </div>
+                                    <div class="outer-div">
+                                        <div class="inner-div">
+                                            <img src="{{ url('/images/' . $product->image) }}" class="card-img-top" alt="Mobile">
+                                        </div>
+                                    </div>
 
+                                </div>
+                            </a>
+
+                            <div class="m-3">
+                                <a class="buy-now button mb-2 w-100">Buy Now</a>
+                                <br>
+                                <a class="add-to-cart button w-100 mb-2" data-product-id="{{ $product->id }}">Add to Cart</a>
                             </div>
-                        </a>
+                        </div>
                     @empty
                         <div class="text-center w-100 mb-3">
                             <span>No products added recently</span>

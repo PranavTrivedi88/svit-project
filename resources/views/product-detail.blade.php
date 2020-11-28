@@ -5,11 +5,12 @@
     <div class="card product-detail">
         <div class="card-body">
             <div class="row">
+                @csrf
                 <div class="col-md-4" style="margin: auto">
                     <div class="product-detail-image">
                         <img class="pr-3" src="{{ url('/images/' . $product->image) }}" alt="">
                         <div class="mt-3" style="display: flex; justify-content: space-evenly">
-                            <a class="buy-now button">Buy Now</a>
+                        <a class="buy-now button">Buy Now</a>
                         <a class="add-to-cart button" data-product-id="{{ $product->id }}">Add to Cart</a>
                         </div>
                     </div>

@@ -10924,6 +10924,11 @@ a.text-dark:focus {
 
 .recent-product{
     width: 15rem;
+    margin-left: 5px;
+}
+
+.recent-product:last-child{
+    margin-right: 5px;
 }
 
 .recent-product:hover{
@@ -10993,7 +10998,7 @@ a.text-dark:focus {
     max-height: 300px;
 }
 
-.product-detail-image .button, .recent-product button, .single-product button{
+.product-detail-image .button, .recent-product .button, .single-product button{
     padding: 7px 8px;
     border-radius: 2px;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
@@ -11026,7 +11031,7 @@ a.text-dark:focus {
   font-size: 12px;
   background: #ff0000;
   color: #fff;
-  padding: 0 5px;
+  padding: 2px 5px;
   vertical-align: top;
   margin-left: -10px;
 }
